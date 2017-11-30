@@ -1,0 +1,37 @@
+  <section id="todoapp">
+      <header dir="rtl" id="header">
+        <h1>משימות</h1>
+        {{input type="text" value=addTaskTextbox id="new-todo" placeholder="הוסף משימה" autofocus="autofocus" action="addTask"}}
+
+      </header>
+
+      <section id="main">
+        <ul id="todo-list" dir="rtl">
+          {{#each model as |tasksUnit|}}
+            {{tasks-listing task=tasksUnit}}
+          {{/each}}
+        </ul>
+        <button onclick={{action 'addTask'}} id="toggle-all"></button>
+        
+      </section>
+
+      <footer dir="rtl" id="footer">
+          <ul id="filters">
+          <li>
+            <span id="todo-count">
+               <label>לסיום</label><label id="lbCount">{{todoIncomplete}}</label>
+            </span>
+          </li>
+          <li>
+            <span id="todo-completed">
+               <label>הושלמו</label><label id="lbCompleted">{{todoCompleted}}</label>
+            </span>
+          </li>
+           <li>
+            <span id="todo-sum">
+             <label>סה"כ</label><label id="lbSumm">{{todoSummary}}</label>
+            </span>
+          </li>
+        </ul>
+      </footer>
+    </section>

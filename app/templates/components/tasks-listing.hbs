@@ -1,0 +1,6 @@
+{{yield}}
+<li class="{{if task.isCompleted "completed" "nc"}}">
+    <button class="destroy" onclick={{action 'removeTask'}}></button>    <input type="checkbox" class="toggle" onclick={{action 'toggleIsCompleted'}}  checked={{task.isCompleted}}>
+    <label style={{displayView}} ondblclick={{action "setTaskEditModeOn"}}>{{task.title}}</label>
+    <label class="update-todo" style={{displayEdit}} ondblclick={{action "setTaskEditModeOff"}}>{{input type="text" value=updateTaskTextbox placeholder=task.title autofocus="autofocus" focus-out="updateTaskOutOfFocus" action="updateTask"}}</label>
+</li>
